@@ -125,6 +125,8 @@ class FirstScreen extends StatelessWidget {
                     return;
                   }
 
+                  controller.selectedUserName.value =
+                      ''; // Agar selected user name di second screen default kosong dari first screen
                   controller.name.value = name.text;
                   Get.to(() => SecondScreen());
                 },

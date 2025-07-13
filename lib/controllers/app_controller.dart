@@ -4,12 +4,16 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class AppController extends GetxController {
-  var name = ''.obs;
-  var selectedUserName = ''.obs;
-  var users = <UserModel>[].obs;
-  var page = 1.obs;
-  var isLoading = false.obs;
+  var name = ''.obs; // menyimpan nama user dari first screen
+  var selectedUserName =
+      ''.obs; // menyimpan nama user yang dipilih dari third screen
+  var users =
+      <UserModel>[]
+          .obs; // menyimpan daftar user yang diambil dari API ke UserModel
+  var page = 1.obs; // untuk pagination API
+  var isLoading = false.obs; // status loading saat mengambil data
 
+  // method untuk mengecek apakah string adalah palindrome
   bool isPalindrome(String text) {
     final cleanedText =
         text
@@ -24,6 +28,8 @@ class AppController extends GetxController {
     fetchUsers();
   }
 
+  // method untuk mengambil data user dari API
+  // refresh: true untuk mengambil data baru, false untuk mengambil data berikutnya
   Future<void> fetchUsers({bool refresh = false}) async {
     if (isLoading.value) return;
     isLoading.value = true;
