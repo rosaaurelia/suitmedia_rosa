@@ -4,6 +4,8 @@ import 'package:suitmedia_rosa/controllers/app_controller.dart';
 import 'package:suitmedia_rosa/screens/third_screen.dart';
 
 class SecondScreen extends StatelessWidget {
+  const SecondScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<AppController>();
@@ -57,7 +59,7 @@ class SecondScreen extends StatelessWidget {
               height: context.mediaQuery.size.height * 0.055,
               child: ElevatedButton(
                 onPressed: () {
-                  Get.to(() => SecondScreen());
+                  Get.to(() => ThirdScreen());
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xFF2B637B),

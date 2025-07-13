@@ -10,6 +10,8 @@ class FirstScreen extends StatelessWidget {
   final palindrome = TextEditingController();
   final controller = Get.put(AppController());
 
+  FirstScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
