@@ -99,11 +99,15 @@ class FirstScreen extends StatelessWidget {
                   );
                 },
                 style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFF2B637B),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                child: const Text('CHECK', style: TextStyle(fontSize: 16)),
+                child: const Text(
+                  'CHECK',
+                  style: TextStyle(fontSize: 16, color: Colors.white),
+                ),
               ),
             ),
 
@@ -123,11 +127,15 @@ class FirstScreen extends StatelessWidget {
                   Get.to(() => SecondScreen());
                 },
                 style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFF2B637B),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                child: Text('NEXT', style: TextStyle(fontSize: 16)),
+                child: Text(
+                  'NEXT',
+                  style: TextStyle(fontSize: 16, color: Colors.white),
+                ),
               ),
             ),
           ],

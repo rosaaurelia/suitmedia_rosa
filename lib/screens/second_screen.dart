@@ -8,14 +8,69 @@ class SecondScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.find<AppController>();
     return Scaffold(
-      appBar: AppBar(title: Text('Second Screen')),
-      body: Center(
+      appBar: AppBar(
+        title: Text(
+          'Second Screen',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_new, color: Colors.blue),
+          onPressed: () => Get.back(),
+        ),
+
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(1),
+          child: Container(color: Colors.grey.shade300, height: 1),
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(24),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text('Second Screen Content'),
-            Text('Welcome, ${controller.name.value}'), // ✅ aman
-            Text('Selected User: ${controller.selectedUserName.value}'),
+            Text('Welcome', style: TextStyle(fontSize: 16)),
+            Obx(
+              () => Text(
+                controller.name.value,
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+              ),
+            ),
+
+            Spacer(),
+
+            Obx(
+              () => Center(
+                child: Text(
+                  controller.selectedUserName.value.isEmpty
+                      ? "Selected User Name"
+                      : controller.selectedUserName.value,
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+
+            Spacer(),
+            SizedBox(
+              width: double.infinity,
+              height: context.mediaQuery.size.height * 0.055,
+              child: ElevatedButton(
+                onPressed: () {
+                  Get.to(() => SecondScreen());
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFF2B637B),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                child: Text(
+                  'Choose a User',
+                  style: TextStyle(fontSize: 16, color: Colors.white),
+                ),
+              ),
+            ),
           ],
         ),
       ),
